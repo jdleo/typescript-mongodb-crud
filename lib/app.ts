@@ -4,10 +4,14 @@ import { Routes } from './routes/routes';
 
 class App {
     public app: express.Application;
+    public routes: Routes = new Routes();
 
     constructor() {
         this.app = express();
         this.config();
+
+        // pass this app to routes file
+        this.routes.routes(this.app);
     }
 
     private config(): void {
