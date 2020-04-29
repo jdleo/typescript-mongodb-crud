@@ -1,6 +1,10 @@
 import { Request, Response } from 'express';
+import { UserController } from '../controllers/userController';
 
 export class Routes {
+    // user controller
+    private userController: UserController = new UserController();
+
     /**
      * @param app : app to be used for these routes
      */
@@ -15,16 +19,8 @@ export class Routes {
 
         // user routes
         app.route('/user')
-            .get((req: Request, res: Response) => {
-                res.status(200).send({
-                    message: 'GET to /user',
-                });
-            })
-            .post((req: Request, res: Response) => {
-                res.status(200).send({
-                    message: 'POST to /user',
-                });
-            })
+            .get(this.userController.getUsers)
+            .post(this.userController.createUser)
             .put((req: Request, res: Response) => {
                 res.status(200).send({
                     message: 'PUT to /user',
