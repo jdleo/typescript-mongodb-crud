@@ -17,22 +17,22 @@ export class Routes {
         app.route('/user')
             .get((req: Request, res: Response) => {
                 res.status(200).send({
-                    message: 'GET to /users',
+                    message: 'GET to /user',
                 });
             })
             .post((req: Request, res: Response) => {
                 res.status(200).send({
-                    message: 'POST to /users',
+                    message: 'POST to /user',
                 });
             })
             .put((req: Request, res: Response) => {
                 res.status(200).send({
-                    message: 'PUT to /users',
+                    message: 'PUT to /user',
                 });
             })
             .delete((req: Request, res: Response) => {
                 res.status(200).send({
-                    message: 'DELETE to /users',
+                    message: 'DELETE to /user',
                 });
             });
     }
