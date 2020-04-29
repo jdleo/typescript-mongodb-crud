@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 export const UserModel = new Schema({
     name: {
-        type: Number,
+        type: String,
         required: 'Enter a name',
     },
     username: {
