@@ -41,7 +41,7 @@ export class UserController {
     public deleteUser(req: Request, res: Response) {
         // get ID of user to delete
         const userId: mongoose.Types.ObjectId = new mongoose.Types.ObjectId(
-            req.params.id
+            req.query.id.toString()
         );
 
         // delete from db
@@ -60,11 +60,11 @@ export class UserController {
     public updateUser(req: Request, res: Response) {
         // get ID of user to update
         const userId: mongoose.Types.ObjectId = new mongoose.Types.ObjectId(
-            req.params.id
+            req.query.id.toString()
         );
 
         // update in db
-        User.update(
+        User.updateOne(
             { _id: userId },
             req.body,
             (err, user: mongoose.Document) => {
