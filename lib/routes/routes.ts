@@ -21,15 +21,7 @@ export class Routes {
         app.route('/user')
             .get(this.userController.getUsers)
             .post(this.userController.createUser)
-            .put((req: Request, res: Response) => {
-                res.status(200).send({
-                    message: 'PUT to /user',
-                });
-            })
-            .delete((req: Request, res: Response) => {
-                res.status(200).send({
-                    message: 'DELETE to /user',
-                });
-            });
+            .put(this.userController.updateUser)
+            .delete(this.userController.deleteUser);
     }
 }
